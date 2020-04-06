@@ -31,4 +31,4 @@ app.use(
 
 app.use(require("./routes"))
 
-app.listen(3000);
+app.listen(process.env || 3000);
