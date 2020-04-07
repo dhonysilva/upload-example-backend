@@ -23,7 +23,7 @@ const storageTypes = {
     s3: new aws.S3(),
     bucket: 'beagleupload',
     contentType: multerS3.AUTO_CONTENT_TYPE,
-    acl: "public-read",
+    acl: 'public-read',
     key: (req, file, cb) => {
       crypto.randomBytes(16, (err, hash) => {
         if (err) cb(err);
@@ -39,6 +39,7 @@ const storageTypes = {
 module.exports = {
   dest: path.resolve(__dirname, "..", "..", "tmp", "uploads"),
   storage: storageTypes[process.env.STORAGE_TYPE],
+  
   limits: {
     fileSize: 2 * 1024 * 1024
   },
